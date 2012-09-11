@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset=utf-8 />
-		<title>Flux Slider Demo &#0187; Hardware accelerated image transitions using CSS3</title>
+		<title>Flux Slider Demo &#0187; Hardware accelerated image transitions using CSS3</title>		
 		<!--[if lte IE 8]>
  			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -14,9 +14,9 @@
 		<!-- Use jQuery for best compatibility with other CSS3 enabled browsers -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		
-		<script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/flux.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
-			$(function(){
+			$(window).load(function () {
 				if(!flux.browser.supportsTransitions)
 					alert("Flux Slider requires a browser that supports CSS3 transitions");
 					
@@ -43,38 +43,62 @@
 	</head>
 	<body id="transitiongallery">
 		<section class="container">
-			<h1><span class="flux">Flux</span> <span class="slider">Slider</span></h1>
-			<h2>Hardware accelerated image transitions using CSS3.</h2>
+		  <h1>Flux Slider</h1>
+      <h2>Responsive, hardware accelerated image transitions using CSS3.</h2>
 			<div id="slidercontainer">
 				<div id="slider">
 					<img src="img/avatar.jpg" alt="" />
-					<img src="img/ironman.jpg" alt="" />
-					<img src="img/tron.jpg" alt="" />
-					<img src="img/greenhornet.jpg" alt="" />
-				</div>
-				<div id="transitions">
-					<h2>2D Transitions</h2>
-					<ul id="trans2D">
-						<li><a href="#bars">Bars</a></li>
-						<li><a href="#zip">Zip</a></li>
-						<li><a href="#blinds">Blinds</a></li>
-						<li><a href="#blocks">Blocks</a></li>
-						<li><a href="#concentric">Concentric</a></li>
-						<li><a href="#warp">Warp</a></li>
-						<li><a href="#slide">Slide</a></li>
-					</ul>
-					<h2>3D Transitions</h2>
-					<ul id="trans3d">
-						<li><a href="#bars3d">Bars3D</a></li>
-						<li><a href="#cube">Cube</a></li>
-						<li><a href="#tiles3d" class="new">Tiles3D</a></li>
-						<li><a href="#blinds3d" class="new">Blinds3D</a></li>
-						<li><a href="#turn" class="new">Turn</a></li>
-					</ul>
-				</div>
+					<img src="img/ironman.jpg" alt="" class="hide" />
+					<img src="img/tron.jpg" alt="" class="hide" />
+					<img src="img/greenhornet.jpg" class="hide" alt="" />
+				</div>				
 			</div>
-			<footer>
+			<div id="transitions" class="clearfix">
+			  <div class="pull-left">
+          <h2>2D Transitions</h2>
+          <ul id="trans2D" class="clearfix">
+            <li><a href="#bars">Bars</a></li>
+            <li><a href="#zip">Zip</a></li>
+            <li><a href="#blinds">Blinds</a></li>
+            <li><a href="#blocks">Blocks</a></li>
+            <li><a href="#concentric">Concentric</a></li>
+            <li><a href="#warp">Warp</a></li>
+            <li><a href="#slide">Slide</a></li>
+            <li><a href="#swipe">Swipe</a></li>
+            <li><a href="#dissolve">Dissolve</a></li>
+            <li><a href="#blocks2">Blocks2</a></li>
+            <li><a class="new" href="#blocks3">Blocks3</a></li>
+          </ul>
+        </div>
+        <div class="pull-left">
+          <h2>3D Transitions</h2>
+          <ul id="trans3d" class="clearfix">
+            <li><a href="#bars3d">Bars3D</a></li>
+            <li><a href="#cube">Cube</a></li>
+            <li><a href="#tiles3d">Tiles3D</a></li>
+            <li><a href="#blinds3d">Blinds3D</a></li>
+            <li><a href="#turn">Turn</a></li>
+            <li><a href="#turn2" class="new">Turn2</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="issues">
+        <h2>Issues</h2>
+        <ul class="with-bullets">
+          <li>
+            Regarding percentage widths and heights, Chrome has more visible rounding issues than Firefox,
+            though both will tend to look better when the scaled images happen to have both an even height and width.
+          </li>
+          <li>
+            Chrome will not get the image aspect ratio on document ready. We have to use window load to initialize the
+            slider or hardcode the aspect ratio for the particular set of images. Could probably make setting the aspect
+            ratio an option.
+          </li>
+        </ul>
+      </div>
+			<footer>			  
 				<p>Flux Slider &copy; Copyright 2011 Joe Lambert. All Rights Reserved. Follow me on Twitter <a href="http://www.twitter.com/joelambert">@joelambert</a></p>
+				<p>Made responsive by Greg Houston. For more explanation see <a href="http://greghoustondesign.com/sandbox/page-turn/">the responsive page turn</a>.</p>
 				<img src="img/html5.png" alt="HTML5" width="35px" />
 			</footer>
 		</section>
